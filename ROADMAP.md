@@ -2,24 +2,26 @@
 
 ## Phase 0 — Setup
 
-- [ ] Install / verify C++ compiler
-- [ ] Install CMake
-- [ ] Configure Visual Studio
-- [ ] Create Git repository
-- [ ] First commit
-- [ ] Learn basic Git workflow
+- [X] Install / verify C++ compiler
+- [X] Install CMake
+- [X] Configure Visual Studio
+- [X] Create Git repository
+- [X] First commit
+- [X] Learn basic Git workflow
 
 ## Phase 1 — C++ Fundamentals
 
-- [ ] Variables and types
-- [ ] Stack vs heap
-- [ ] Pointers
-- [ ] References
-- [ ] const correctness
-- [ ] Functions
-- [ ] Classes and structs
+- [X] Variables and types
+- [X] Stack vs heap
+- [X] Pointers
+- [X] References
+- [X] const correctness
+- [X] Functions
+- [X] Structs
+- [ ] Classes
 - [ ] OOP
-- [ ] Constructors / destructors
+- [X] Constructors 
+- [ ] destructors
 - [ ] RAII
 - [ ] Smart pointers
 - [ ] STL
