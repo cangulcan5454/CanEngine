@@ -18,7 +18,7 @@
 - [X] const correctness
 - [X] Functions
 - [X] Structs
-- [ ] Classes
+- [X] Classes
 - [ ] OOP
 - [X] Constructors 
 - [ ] destructors
