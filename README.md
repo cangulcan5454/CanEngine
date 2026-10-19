@@ -1,32 +1,49 @@
 # CanEngine
 
-A long-term C++ game-engine and game-networking learning project.
+CanEngine is a modular game engine being developed in modern C++ as a computer engineering graduation project.
 
-## Goal
+## Goals
 
-Build a portfolio that demonstrates:
-- Modern C++
-- Memory management
-- Data structures and algorithms
-- Game-engine architecture
-- Multithreading
-- Networking
-- Backend systems
-- Security / anti-cheat concepts
-- Performance profiling and optimization
+The project aims to explore and implement core game-engine systems including:
 
-## Roadmap
+- Engine architecture
+- Application and game loop
+- Window and input management
+- Real-time rendering
+- Shader management
+- Scene management
+- Entity-component architecture
+- Resource management
+- Basic collision systems
+- Performance profiling
 
-See [ROADMAP.md](ROADMAP.md).
+## Technology
 
-## Daily Progress
+- C++20
+- CMake
+- OpenGL
+- GLFW
+- GLAD
+- GLM
 
-See [DAILY_LOG.md](DAILY_LOG.md).
+Additional libraries will be introduced as the project develops.
 
-## Weekly Reviews
+## Project Structure
 
-See [WEEKLY_REVIEW.md](WEEKLY_REVIEW.md).
+```text
+CanEngine/
+├── engine/
+│   ├── include/
+│   └── src/
+├── sandbox/
+│   └── src/
+├── assets/
+├── docs/
+├── tests/
+├── CMakeLists.txt
+└── README.md
+```
 
-## Philosophy
+## Status
 
-This project is built incrementally. Each feature should be understood, tested, documented, and committed to Git.
+Early development.
