@@ -66,7 +66,7 @@ If NO: do not expand the scope.
 
 ### Week 1 — Engine Core
 
-- [ ] Day 1 — CMake configure/build
+- [x] Day 1 — CMake configure/build
 - [ ] Day 2 — Engine/Sandbox architecture
 - [ ] Day 3 — Application class
 - [ ] Day 4 — Game Loop
