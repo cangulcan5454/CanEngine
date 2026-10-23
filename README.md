@@ -11,11 +11,11 @@ The project aims to explore and implement core game-engine systems including:
 - Window and input management
 - Real-time rendering
 - Shader management
-- Scene management
-- Entity-component architecture
 - Resource management
-- Basic collision systems
 - Performance profiling
+
+The v0.1 scope and daily milestones are defined in
+[the development plan](docs/CANENGINE_V0.1_PLAN.md).
 
 ## Technology
 
@@ -46,4 +46,5 @@ CanEngine/
 
 ## Status
 
-Early development.
+Day 2: Engine/Sandbox architecture is documented in
+[the architecture guide](docs/ARCHITECTURE.md), including build instructions.
