@@ -12,7 +12,7 @@ The engine will be developed while learning the required C++ concepts directly t
 
 - [x] C++20 + CMake
 - [x] Engine / Sandbox architecture
-- [ ] Application
+- [x] Application
 - [x] Game Loop
 - [x] Delta Time
 - [ ] Logging
@@ -68,7 +68,7 @@ If NO: do not expand the scope.
 
 - [x] Day 1 — CMake configure/build
 - [x] Day 2 — Engine/Sandbox architecture
-- [ ] Day 3 — Application class
+- [x] Day 3 — Application class
 - [x] Day 4 — Game Loop
 - [x] Day 5 — Delta Time
 

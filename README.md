@@ -46,5 +46,4 @@ CanEngine/
 
 ## Status
 
-Day 2: Engine/Sandbox architecture is documented in
-[the architecture guide](docs/ARCHITECTURE.md), including build instructions.
+Day 3: Application completed
