@@ -1,6 +1,6 @@
 #include <CanEngine/Engine.h>
+#include <CanEngine/Log.h>
 #include <chrono>
-#include <iostream>
 
 namespace CanEngine
 {
@@ -8,7 +8,7 @@ namespace CanEngine
     {
         if (!initialized)
         {
-            std::cerr << "Engine is not initialized!" << '\n';
+            Log::Error("Engine is not initialized!");
             return;
         }   
 
@@ -31,8 +31,7 @@ namespace CanEngine
             onUpdate(deltaTime);}
             frame++;
 
-            std::cout << "Frame: " << frame
-                      << " | DeltaTime: " << deltaTime << '\n';
+            Log::Info("Frame: "+ std::to_string(frame) + " | DeltaTime: " + std::to_string(deltaTime));
 
             if (frame >= 10)
             {
@@ -46,7 +45,7 @@ namespace CanEngine
             return false;
         }
         initialized= true;
-        std::cout << "CanEngine initialized." << std::endl;
+        Log::Info("CanEngine initialized.");
         return true;
     }
 
@@ -56,6 +55,6 @@ namespace CanEngine
         }
 
         initialized=false;
-        std::cout<<"CanEngine shutdown."<<'\n';
+        Log::Info("CanEngine shutdown.");
     }
 }

@@ -1,18 +1,19 @@
 #include <CanEngine/Application.h>
-#include <iostream>
+#include <CanEngine/Log.h>
+
 
 namespace CanEngine
 {
    void Application::Start()
    {
-        std::cout<< "Application started"<<'\n';
+        Log::Info("Application started");
    }
 
    void Application::Run()
 {
     if (!engine.Initialize())
 {
-    std::cerr << "Engine initialization failed!" << '\n';
+    Log::Error("Engine initialization failed!");
     return;
 }
     engine.Run(
