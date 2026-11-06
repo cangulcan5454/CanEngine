@@ -74,7 +74,7 @@ If NO: do not expand the scope.
 
 ### Week 2 — Core Systems
 
-- [ ] Day 6 — Engine lifecycle
+- [x] Day 6 — Engine lifecycle
 - [ ] Day 7 — Logging
 - [ ] Day 8 — GLFW integration
 - [ ] Day 9 — Window abstraction

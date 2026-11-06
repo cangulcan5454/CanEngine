@@ -6,7 +6,12 @@ namespace CanEngine
 {
     void Engine::Run(std::function<void(float)> onUpdate)
     {
-        std::cout << "CanEngine initialized." << std::endl;
+        if (!initialized)
+        {
+            std::cerr << "Engine is not initialized!" << '\n';
+            return;
+        }   
+
         bool running = true;
         int frame = 0;
 
@@ -34,5 +39,23 @@ namespace CanEngine
                 running = false;
             }
         }
+    }
+    bool Engine::Initialize(){
+
+        if (initialized){
+            return false;
+        }
+        initialized= true;
+        std::cout << "CanEngine initialized." << std::endl;
+        return true;
+    }
+
+    void Engine::Shutdown(){
+        if(!initialized){
+            return;
+        }
+
+        initialized=false;
+        std::cout<<"CanEngine shutdown."<<'\n';
     }
 }

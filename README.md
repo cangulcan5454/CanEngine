@@ -46,4 +46,4 @@ CanEngine/
 
 ## Status
 
-Day 3: Application completed
+Day 6: Engine lifecycle completed

@@ -10,11 +10,18 @@ namespace CanEngine
 
    void Application::Run()
 {
+    if (!engine.Initialize())
+{
+    std::cerr << "Engine initialization failed!" << '\n';
+    return;
+}
     engine.Run(
         [](float deltaTime)
         {
             // Şimdilik yapılacak bir işlem yok.
         }
     );
+
+    engine.Shutdown();
 }
 }
