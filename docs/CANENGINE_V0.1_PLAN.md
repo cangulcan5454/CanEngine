@@ -16,7 +16,7 @@ The engine will be developed while learning the required C++ concepts directly t
 - [x] Game Loop
 - [x] Delta Time
 - [x] Logging
-- [ ] GLFW Window
+- [x] GLFW Window
 - [ ] Keyboard Input
 - [ ] Mouse Input
 - [ ] OpenGL + GLAD
@@ -76,9 +76,9 @@ If NO: do not expand the scope.
 
 - [x] Day 6 — Engine lifecycle
 - [x] Day 7 — Logging
-- [ ] Day 8 — GLFW integration
-- [ ] Day 9 — Window abstraction
-- [ ] Day 10 — Window lifecycle
+- [x] Day 8 — GLFW integration
+- [x] Day 9 — Window abstraction
+- [x] Day 10 — Window lifecycle
 
 ### Week 3 — Input
 

@@ -46,4 +46,4 @@ CanEngine/
 
 ## Status
 
-Day 7: Logging completed
+GLFW integration and Window completed day 10/45

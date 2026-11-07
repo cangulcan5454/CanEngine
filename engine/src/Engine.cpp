@@ -32,8 +32,6 @@ namespace CanEngine
             onUpdate(deltaTime);}
             frame++;
 
-            Log::Info("Frame: "+ std::to_string(frame) + " | DeltaTime: " + std::to_string(deltaTime));
-
         }
     }
     bool Engine::Initialize(){
