@@ -1,5 +1,6 @@
 #pragma once
 #include <functional>
+#include <CanEngine/Window.h>
 
 namespace CanEngine
 {
@@ -11,5 +12,6 @@ namespace CanEngine
         void Shutdown();
     private:
         bool initialized = false;
+        Window window;
     };
 }

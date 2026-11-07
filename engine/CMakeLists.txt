@@ -1,10 +1,19 @@
+find_package(glfw3 3.5 CONFIG REQUIRED)
+
 add_library(CanEngine STATIC
     src/Engine.cpp
     src/Application.cpp
     src/Log.cpp
+    src/Window.cpp
     include/CanEngine/Engine.h
     include/CanEngine/Application.h
     include/CanEngine/Log.h
+    include/CanEngine/Window.h
+)
+
+target_link_libraries(CanEngine
+    PUBLIC
+        glfw
 )
 
 target_compile_features(CanEngine PUBLIC cxx_std_20)
