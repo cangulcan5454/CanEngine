@@ -1,5 +1,4 @@
 #include <CanEngine/Application.h>
-#include <iostream>
 
 int main()
 {

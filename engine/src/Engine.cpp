@@ -64,4 +64,12 @@ namespace CanEngine
         initialized=false;
         Log::Info("CanEngine shutdown.");
     }
+
+    bool Engine::IsKeyPressed(int key) const{
+        return window.IsKeyPressed(key);
+    }
+
+    bool Engine::IsKeyJustPressed(int key){
+        return window.IsKeyJustPressed(key);
+    }
 }

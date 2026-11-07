@@ -46,4 +46,4 @@ CanEngine/
 
 ## Status
 
-GLFW integration and Window completed day 10/45
+Keyboard input system completed day 11/45

@@ -38,4 +38,29 @@ namespace CanEngine{
     void Window::PollEvents(){
         glfwPollEvents();
     }
+
+    bool Window::IsKeyPressed(int key) const
+    {
+        if (window == nullptr)
+            return false;
+
+        return glfwGetKey(window, key) == GLFW_PRESS;
+    }
+
+    bool Window::IsKeyJustPressed(int key){
+        if(window == nullptr)
+            return false;
+        if (key < 0 || key >= previousKeyStates.size())
+            return false;
+
+        bool currentState = false;
+        if(glfwGetKey(window,key) == GLFW_PRESS)
+            currentState = true;
+        
+        bool previousState = previousKeyStates[key];
+
+        bool result = currentState && !previousState;
+        previousKeyStates[key] = currentState;
+        return result;
+    }
 }
