@@ -1,5 +1,7 @@
 #include <CanEngine/Application.h>
 #include <CanEngine/Log.h>
+#include <GLFW/glfw3.h>
+#include <string>
 
 
 namespace CanEngine
@@ -28,6 +30,18 @@ namespace CanEngine
             {
                 Log::Info("E key is just pressed!");
             }
+
+            double mouseX;
+            double mouseY;
+            
+            engine.GetMousePosition(mouseX,mouseY);
+
+            if(engine.IsMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
+            {
+                Log::Info("Left click is pressed");
+                Log::Info("mouseX = " + std::to_string(mouseX) + "mouseY = " + std::to_string(mouseY));
+            }
+         
         }
     );
 

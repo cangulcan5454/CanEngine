@@ -1,7 +1,9 @@
 #include<CanEngine/Window.h>
 #include<CanEngine/Log.h>
+#include <GLFW/glfw3.h>
 
-namespace CanEngine{
+namespace CanEngine {
+
     bool Window::Create(int width, int height, const std::string& title){
         GLFWwindow* tmpwindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
         if(tmpwindow == nullptr){
@@ -39,28 +41,8 @@ namespace CanEngine{
         glfwPollEvents();
     }
 
-    bool Window::IsKeyPressed(int key) const
+    GLFWwindow* Window::GetNativeWindow() const
     {
-        if (window == nullptr)
-            return false;
-
-        return glfwGetKey(window, key) == GLFW_PRESS;
-    }
-
-    bool Window::IsKeyJustPressed(int key){
-        if(window == nullptr)
-            return false;
-        if (key < 0 || key >= previousKeyStates.size())
-            return false;
-
-        bool currentState = false;
-        if(glfwGetKey(window,key) == GLFW_PRESS)
-            currentState = true;
-        
-        bool previousState = previousKeyStates[key];
-
-        bool result = currentState && !previousState;
-        previousKeyStates[key] = currentState;
-        return result;
+        return window;
     }
 }

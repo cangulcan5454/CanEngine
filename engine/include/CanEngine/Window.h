@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <GLFW/glfw3.h>
-#include <array>
 
 namespace CanEngine{
 
@@ -12,13 +11,11 @@ namespace CanEngine{
         void Destroy();
         bool ShouldClose() const;
         void PollEvents();
-        bool IsKeyPressed(int key) const;
-        bool IsKeyJustPressed(int key);
+        GLFWwindow* GetNativeWindow() const;
         private:
         int width = 0;
         int height = 0;
         std::string title;
         GLFWwindow* window = nullptr;
-        std::array<bool, 512> previousKeyStates{};
     };
 }

@@ -4,6 +4,11 @@
 
 namespace CanEngine
 {
+    Engine::Engine()
+        :input(window)
+    {
+    }
+
     void Engine::Run(std::function<void(float)> onUpdate)
     {
 
@@ -66,10 +71,20 @@ namespace CanEngine
     }
 
     bool Engine::IsKeyPressed(int key) const{
-        return window.IsKeyPressed(key);
+        return input.IsKeyPressed(key);
     }
 
     bool Engine::IsKeyJustPressed(int key){
-        return window.IsKeyJustPressed(key);
+        return input.IsKeyJustPressed(key);
+    }
+
+    void Engine::GetMousePosition(double& x, double& y) const
+    {
+        input.GetMousePosition(x,y);
+    }
+
+    bool Engine::IsMouseButtonPressed(int button) const
+    {
+        return input.IsMouseButtonPressed(button);
     }
 }

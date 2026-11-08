@@ -5,10 +5,12 @@ add_library(CanEngine STATIC
     src/Application.cpp
     src/Log.cpp
     src/Window.cpp
+    src/Input.cpp
     include/CanEngine/Engine.h
     include/CanEngine/Application.h
     include/CanEngine/Log.h
     include/CanEngine/Window.h
+    include/CanEngine/Input.h
 )
 
 target_link_libraries(CanEngine
