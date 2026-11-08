@@ -18,7 +18,7 @@ The engine will be developed while learning the required C++ concepts directly t
 - [x] Logging
 - [x] GLFW Window
 - [x] Keyboard Input
-- [ ] Mouse Input
+- [x] Mouse Input
 - [ ] OpenGL + GLAD
 - [ ] Vertex Buffer
 - [ ] Index Buffer
@@ -83,8 +83,8 @@ If NO: do not expand the scope.
 ### Week 3 — Input
 
 - [x] Day 11 — Keyboard input
-- [ ] Day 12 — Mouse input
-- [ ] Day 13 — Input module
+- [x] Day 12 — Mouse input
+- [x] Day 13 — Input module
 - [ ] Day 14 — Events/callbacks
 - [ ] Day 15 — Window/Input test
 
