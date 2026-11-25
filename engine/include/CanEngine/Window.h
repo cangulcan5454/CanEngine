@@ -11,11 +11,21 @@ namespace CanEngine{
         void Destroy();
         bool ShouldClose() const;
         void PollEvents();
+        int GetWidth() const;
+        int GetHeight() const;
         GLFWwindow* GetNativeWindow() const;
         private:
         int width = 0;
         int height = 0;
         std::string title;
         GLFWwindow* window = nullptr;
+        static void WindowSizeCallback(
+            GLFWwindow* nativeWindow,
+            int width,
+            int height
+        );
+        static void WindowCloseCallback(
+            GLFWwindow* nativeWindow
+        );
     };
 }

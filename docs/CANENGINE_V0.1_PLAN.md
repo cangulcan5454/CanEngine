@@ -85,8 +85,8 @@ If NO: do not expand the scope.
 - [x] Day 11 — Keyboard input
 - [x] Day 12 — Mouse input
 - [x] Day 13 — Input module
-- [ ] Day 14 — Events/callbacks
-- [ ] Day 15 — Window/Input test
+- [x] Day 14 — Events/callbacks
+- [x] Day 15 — Window/Input test
 
 ### Week 4 — OpenGL
 

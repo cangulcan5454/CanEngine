@@ -10,6 +10,11 @@ namespace CanEngine {
             Log::Error("Window cannot created");
             return false;
         }
+
+        glfwSetWindowUserPointer(tmpwindow, this);
+        glfwSetWindowSizeCallback(tmpwindow, WindowSizeCallback);
+        glfwSetWindowCloseCallback(tmpwindow, WindowCloseCallback);
+        
         this->width = width;
         this->height = height;
         this->title = title;
@@ -44,5 +49,47 @@ namespace CanEngine {
     GLFWwindow* Window::GetNativeWindow() const
     {
         return window;
+    }
+
+    int Window::GetWidth() const{
+        return width;
+    }
+
+    int Window::GetHeight() const{
+        return height;
+    }
+
+    void Window::WindowSizeCallback(
+        GLFWwindow* nativeWindow,
+        int width,
+        int height
+    )
+    {
+        Window* self = static_cast<Window*>(
+            glfwGetWindowUserPointer(nativeWindow)
+        );
+
+        if (self == nullptr)
+        {
+            return;
+        }
+
+        self->width = width;
+        self->height = height;
+
+        Log::Info("Window resized: " + std::to_string(width) + " x " + std::to_string(height));
+    }
+
+    void Window::WindowCloseCallback(GLFWwindow* nativeWindow){
+         Window* self = static_cast<Window*>(
+            glfwGetWindowUserPointer(nativeWindow)
+        );
+
+        if (self == nullptr)
+        {
+            return;
+        }
+
+        Log::Info("Window close requested.");
     }
 }
