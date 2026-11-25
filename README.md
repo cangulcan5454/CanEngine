@@ -24,6 +24,7 @@ The v0.1 scope and daily milestones are defined in
 - OpenGL
 - GLFW
 - GLAD
+https://gen.glad.sh/#generator=c&api=gl%3D3.3&profile=gl%3Dcore%2Cgles1%3Dcommon&options=LOADER
 - GLM
 
 Additional libraries will be introduced as the project develops.

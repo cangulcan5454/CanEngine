@@ -13,6 +13,10 @@ add_library(CanEngine STATIC
     include/CanEngine/Input.h
 )
 
+target_sources(CanEngine PRIVATE
+    third_party/glad/src/gl.c
+)
+
 target_link_libraries(CanEngine
     PUBLIC
         glfw
@@ -23,4 +27,5 @@ target_compile_features(CanEngine PUBLIC cxx_std_20)
 target_include_directories(CanEngine
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/glad/include
 )
