@@ -19,7 +19,7 @@ The engine will be developed while learning the required C++ concepts directly t
 - [x] GLFW Window
 - [x] Keyboard Input
 - [x] Mouse Input
-- [ ] OpenGL + GLAD
+- [x] OpenGL + GLAD
 - [ ] Vertex Buffer
 - [ ] Index Buffer
 - [ ] Vertex Array
@@ -94,7 +94,7 @@ If NO: do not expand the scope.
 - [x] Day 17 — GLAD
 - [x] Day 18 — OpenGL context
 - [x] Day 19 — Clear screen
-- [ ] Day 20 — First triangle
+- [x] Day 20 — First triangle
 
 ### Week 5 — Buffers
 
