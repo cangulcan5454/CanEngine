@@ -1,15 +1,19 @@
 #include<CanEngine/Window.h>
 #include<CanEngine/Log.h>
-#include <GLFW/glfw3.h>
 
 namespace CanEngine {
 
     bool Window::Create(int width, int height, const std::string& title){
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         GLFWwindow* tmpwindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
         if(tmpwindow == nullptr){
             Log::Error("Window cannot created");
             return false;
         }
+
+        glfwMakeContextCurrent(tmpwindow);
 
         glfwSetWindowUserPointer(tmpwindow, this);
         glfwSetWindowSizeCallback(tmpwindow, WindowSizeCallback);

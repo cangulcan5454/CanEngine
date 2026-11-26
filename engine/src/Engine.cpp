@@ -1,5 +1,6 @@
 #include <CanEngine/Engine.h>
 #include <CanEngine/Log.h>
+#include <glad/gl.h>
 #include <chrono>
 
 namespace CanEngine
@@ -54,8 +55,19 @@ namespace CanEngine
             glfwTerminate();
             return false;
         }
+        
+        int gladVersion = gladLoadGL((GLADloadfunc)glfwGetProcAddress);
+        if(gladVersion == 0)
+        {
+
+            Log::Error("GLAD initialization failed");
+
+            window.Destroy();
+            glfwTerminate();
+            return false;
+        }
         initialized= true;
-        Log::Info("CanEngine initialized.");
+        Log::Info("CanEngine initialized. Glad version: " + std::to_string(gladVersion));
         return true;
     }
 

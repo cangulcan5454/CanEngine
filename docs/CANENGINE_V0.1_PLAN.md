@@ -90,9 +90,9 @@ If NO: do not expand the scope.
 
 ### Week 4 — OpenGL
 
-- [ ] Day 16 — Rendering pipeline
-- [ ] Day 17 — GLAD
-- [ ] Day 18 — OpenGL context
+- [x] Day 16 — Rendering pipeline
+- [x] Day 17 — GLAD
+- [x] Day 18 — OpenGL context
 - [ ] Day 19 — Clear screen
 - [ ] Day 20 — First triangle
 
