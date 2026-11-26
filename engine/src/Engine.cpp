@@ -22,6 +22,7 @@ namespace CanEngine
         int frame = 0;
 
         auto previousTime = std::chrono::steady_clock::now();
+        glClearColor(0.2f,0.2f,1.0f,1.0f);
 
         while (!window.ShouldClose())
         {
@@ -36,6 +37,8 @@ namespace CanEngine
 
             if (onUpdate){
             onUpdate(deltaTime);}
+            glClear(GL_COLOR_BUFFER_BIT);
+            glfwSwapBuffers(window.GetNativeWindow());
             frame++;
 
         }
@@ -66,6 +69,14 @@ namespace CanEngine
             glfwTerminate();
             return false;
         }
+        int height = window.GetHeight();
+        int width = window.GetWidth();
+        glfwGetFramebufferSize(
+            window.GetNativeWindow(),
+            &width,
+            &height
+        );
+        glViewport(0,0,width,height);
         initialized= true;
         Log::Info("CanEngine initialized. Glad version: " + std::to_string(gladVersion));
         return true;

@@ -93,7 +93,7 @@ If NO: do not expand the scope.
 - [x] Day 16 — Rendering pipeline
 - [x] Day 17 — GLAD
 - [x] Day 18 — OpenGL context
-- [ ] Day 19 — Clear screen
+- [x] Day 19 — Clear screen
 - [ ] Day 20 — First triangle
 
 ### Week 5 — Buffers
