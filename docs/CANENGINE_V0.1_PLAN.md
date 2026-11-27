@@ -21,7 +21,7 @@ The engine will be developed while learning the required C++ concepts directly t
 - [x] Mouse Input
 - [x] OpenGL + GLAD
 - [x] Vertex Buffer
-- [ ] Index Buffer
+- [x] Index Buffer
 - [x] Vertex Array
 - [ ] Shader
 - [ ] Texture
@@ -101,8 +101,8 @@ If NO: do not expand the scope.
 - [x] Day 21 — Vertex structure
 - [x] Day 22 — Vertex Buffer
 - [x] Day 23 — Vertex Array
-- [ ] Day 24 — Index Buffer
-- [ ] Day 25 — Renderer abstraction
+- [x] Day 24 — Index Buffer
+- [x] Day 25 — Renderer abstraction
 
 ### Week 6 — Shaders
 
