@@ -1,11 +1,8 @@
 #include <CanEngine/Engine.h>
 #include <CanEngine/Log.h>
-#include <CanEngine/VertexBuffer.h>
-#include <CanEngine/VertexArray.h>
-#include <CanEngine/IndexBuffer.h>
+#include <CanEngine/Renderer.h>
 #include <glad/gl.h>
 #include <chrono>
-#include <cstddef>
 
 namespace CanEngine
 {
@@ -13,21 +10,6 @@ namespace CanEngine
         :input(window)
     {
     }
-
-    struct Vertex
-    {
-        float position[3];
-    };
-
-    Vertex vertices[3] ={
-        {{0.0f,0.5f,0.0f}},
-        {{-0.5f,-0.5f,0.0f}},
-        {{0.5f,-0.5f,0.0f}}
-    };
-
-    unsigned int indices[] = {
-        0, 1, 2
-    };
 
 
     void Engine::Run(std::function<void(float)> onUpdate)
@@ -43,97 +25,14 @@ namespace CanEngine
         auto previousTime = std::chrono::steady_clock::now();
 
         glClearColor(0.2f,0.2f,1.0f,1.0f);
-        
-        VertexArray vertexArray;
-        VertexBuffer vertexBuffer(vertices, sizeof(vertices));
-        IndexBuffer indexBuffer(indices, sizeof(indices) / sizeof(indices[0]));
-        vertexArray.SetAttribute(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
 
+        Renderer renderer;
 
-        const char* vertexShaderSource = R"(
-        #version 330 core
-
-        layout (location = 0) in vec3 aPos;
-
-        void main()
+        if (!renderer.Initialize())
         {
-            gl_Position = vec4(aPos, 1.0);
+            renderer.Shutdown();
+            return;
         }
-        )";
-        const char* fragmentShaderSource = R"(
-        #version 330 core
-
-        out vec4 FragColor;
-
-        void main()
-        {
-            FragColor = vec4(1.0, 0.5, 0.0, 1.0);
-        }
-        )";
-
-        unsigned int vertexShader;
-        vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
-        glCompileShader(vertexShader);
-        int success;
-        glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-        if (success == GL_FALSE)
-        {
-            char infoLog[512];
-
-            glGetShaderInfoLog(
-                vertexShader,
-                512,
-                nullptr,
-                infoLog
-            );
-
-            Log::Error(infoLog);
-        }
-
-        unsigned int fragmentShader;
-        fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
-        glCompileShader(fragmentShader);
-        glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-        if (success == GL_FALSE)
-        {
-            char infoLog[512];
-
-            glGetShaderInfoLog(
-                fragmentShader,
-                512,
-                nullptr,
-                infoLog
-            );
-
-            Log::Error(infoLog);
-        }
-
-        unsigned int shaderProgram;
-        shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertexShader);
-        glAttachShader(shaderProgram, fragmentShader);
-        glLinkProgram(shaderProgram);
-        glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-        if (success == GL_FALSE)
-        {
-            char infoLog[512];
-
-            glGetProgramInfoLog(
-                shaderProgram,
-                512,
-                nullptr,
-                infoLog
-            );
-
-            Log::Error(infoLog);
-        }
-
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
-
-        glUseProgram(shaderProgram);
 
         while (!window.ShouldClose())
         {
@@ -148,19 +47,12 @@ namespace CanEngine
 
             if (onUpdate){
             onUpdate(deltaTime);}
-
             glClear(GL_COLOR_BUFFER_BIT);
-            vertexArray.Bind();
-            glDrawElements(
-                GL_TRIANGLES,
-                indexBuffer.GetCount(),
-                GL_UNSIGNED_INT,
-                nullptr
-            );
+            renderer.Render();
             glfwSwapBuffers(window.GetNativeWindow());
 
         }
-        glDeleteProgram(shaderProgram);
+        renderer.Shutdown();
     }
     bool Engine::Initialize(){
 
