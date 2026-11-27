@@ -1,5 +1,6 @@
 #include <CanEngine/Engine.h>
 #include <CanEngine/Log.h>
+#include <CanEngine/VertexBuffer.h>
 #include <glad/gl.h>
 #include <chrono>
 
@@ -21,6 +22,7 @@ namespace CanEngine
         {{0.5f,-0.5f,0.0f}}
     };
 
+
     void Engine::Run(std::function<void(float)> onUpdate)
     {
 
@@ -35,20 +37,12 @@ namespace CanEngine
         auto previousTime = std::chrono::steady_clock::now();
 
         glClearColor(0.2f,0.2f,1.0f,1.0f);
-
         unsigned int VAO;
         glGenVertexArrays(1, &VAO);
         glBindVertexArray(VAO);
-        unsigned int VBO;
-        glGenBuffers(1, &VBO);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        
+        VertexBuffer vertexbuffer(vertices, sizeof(vertices));
 
-        glBufferData(
-            GL_ARRAY_BUFFER,
-            sizeof(vertices),
-            vertices,
-            GL_STATIC_DRAW
-        );
         glVertexAttribPointer(
             0,
             3,
@@ -166,7 +160,6 @@ namespace CanEngine
 
         }
         glDeleteVertexArrays(1, &VAO);
-        glDeleteBuffers(1, &VBO);
         glDeleteProgram(shaderProgram);
     }
     bool Engine::Initialize(){
