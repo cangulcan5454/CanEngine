@@ -1,8 +1,10 @@
 #include <CanEngine/Engine.h>
 #include <CanEngine/Log.h>
 #include <CanEngine/VertexBuffer.h>
+#include <CanEngine/VertexArray.h>
 #include <glad/gl.h>
 #include <chrono>
+#include <cstddef>
 
 namespace CanEngine
 {
@@ -32,26 +34,14 @@ namespace CanEngine
             return;
         }   
 
-        int frame = 0;
 
         auto previousTime = std::chrono::steady_clock::now();
 
         glClearColor(0.2f,0.2f,1.0f,1.0f);
-        unsigned int VAO;
-        glGenVertexArrays(1, &VAO);
-        glBindVertexArray(VAO);
         
+        VertexArray vertexarray;
         VertexBuffer vertexbuffer(vertices, sizeof(vertices));
-
-        glVertexAttribPointer(
-            0,
-            3,
-            GL_FLOAT,
-            GL_FALSE,
-            sizeof(Vertex),
-            (void*)offsetof(Vertex, position)
-        );
-        glEnableVertexAttribArray(0);
+        vertexarray.SetAttribute(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
 
         const char* vertexShaderSource = R"(
         #version 330 core
@@ -153,13 +143,11 @@ namespace CanEngine
             onUpdate(deltaTime);}
 
             glClear(GL_COLOR_BUFFER_BIT);
-            glBindVertexArray(VAO);
+            vertexarray.Bind();
             glDrawArrays(GL_TRIANGLES, 0, 3);
             glfwSwapBuffers(window.GetNativeWindow());
-            frame++;
 
         }
-        glDeleteVertexArrays(1, &VAO);
         glDeleteProgram(shaderProgram);
     }
     bool Engine::Initialize(){
