@@ -14,7 +14,7 @@ namespace CanEngine{
     }
 
     VertexBuffer::~VertexBuffer(){
-    glDeleteBuffers(1, &VBO);
+        glDeleteBuffers(1, &VBO);
     }
 
     void VertexBuffer::Bind(){

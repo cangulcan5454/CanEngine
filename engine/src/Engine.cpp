@@ -2,6 +2,7 @@
 #include <CanEngine/Log.h>
 #include <CanEngine/VertexBuffer.h>
 #include <CanEngine/VertexArray.h>
+#include <CanEngine/IndexBuffer.h>
 #include <glad/gl.h>
 #include <chrono>
 #include <cstddef>
@@ -24,6 +25,10 @@ namespace CanEngine
         {{0.5f,-0.5f,0.0f}}
     };
 
+    unsigned int indices[] = {
+        0, 1, 2
+    };
+
 
     void Engine::Run(std::function<void(float)> onUpdate)
     {
@@ -39,9 +44,11 @@ namespace CanEngine
 
         glClearColor(0.2f,0.2f,1.0f,1.0f);
         
-        VertexArray vertexarray;
-        VertexBuffer vertexbuffer(vertices, sizeof(vertices));
-        vertexarray.SetAttribute(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
+        VertexArray vertexArray;
+        VertexBuffer vertexBuffer(vertices, sizeof(vertices));
+        IndexBuffer indexBuffer(indices, sizeof(indices) / sizeof(indices[0]));
+        vertexArray.SetAttribute(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
+
 
         const char* vertexShaderSource = R"(
         #version 330 core
@@ -143,8 +150,13 @@ namespace CanEngine
             onUpdate(deltaTime);}
 
             glClear(GL_COLOR_BUFFER_BIT);
-            vertexarray.Bind();
-            glDrawArrays(GL_TRIANGLES, 0, 3);
+            vertexArray.Bind();
+            glDrawElements(
+                GL_TRIANGLES,
+                indexBuffer.GetCount(),
+                GL_UNSIGNED_INT,
+                nullptr
+            );
             glfwSwapBuffers(window.GetNativeWindow());
 
         }
