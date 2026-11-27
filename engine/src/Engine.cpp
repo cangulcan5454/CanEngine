@@ -10,6 +10,17 @@ namespace CanEngine
     {
     }
 
+    struct Vertex
+    {
+        float position[3];
+    };
+
+    Vertex vertices[3] ={
+        {{0.0f,0.5f,0.0f}},
+        {{-0.5f,-0.5f,0.0f}},
+        {{0.5f,-0.5f,0.0f}}
+    };
+
     void Engine::Run(std::function<void(float)> onUpdate)
     {
 
@@ -25,11 +36,6 @@ namespace CanEngine
 
         glClearColor(0.2f,0.2f,1.0f,1.0f);
 
-        float vertices[] = {
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            0.0f,  0.5f, 0.0f
-        };
         unsigned int VAO;
         glGenVertexArrays(1, &VAO);
         glBindVertexArray(VAO);
@@ -48,8 +54,8 @@ namespace CanEngine
             3,
             GL_FLOAT,
             GL_FALSE,
-            3 * sizeof(float),
-            nullptr
+            sizeof(Vertex),
+            (void*)offsetof(Vertex, position)
         );
         glEnableVertexAttribArray(0);
 

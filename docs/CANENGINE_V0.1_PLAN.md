@@ -98,7 +98,7 @@ If NO: do not expand the scope.
 
 ### Week 5 — Buffers
 
-- [ ] Day 21 — Vertex structure
+- [x] Day 21 — Vertex structure
 - [ ] Day 22 — Vertex Buffer
 - [ ] Day 23 — Vertex Array
 - [ ] Day 24 — Index Buffer
