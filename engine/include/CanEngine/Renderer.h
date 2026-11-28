@@ -2,6 +2,7 @@
 #include <CanEngine/VertexBuffer.h>
 #include <CanEngine/VertexArray.h>
 #include <CanEngine/IndexBuffer.h>
+#include <CanEngine/Shader.h>
 
 namespace CanEngine{
     class Renderer{
@@ -11,7 +12,6 @@ namespace CanEngine{
         void Render();
         void Shutdown();
         private:
-            unsigned int shaderProgram = 0;
             struct Vertex
             {
                 float position[3];
@@ -25,9 +25,9 @@ namespace CanEngine{
 
             unsigned int indices[3] = {0, 1, 2};
 
-
             VertexArray vertexArray;
             VertexBuffer vertexBuffer;
             IndexBuffer indexBuffer;
+            Shader shader;
     };
 }

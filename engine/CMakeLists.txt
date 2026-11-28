@@ -10,6 +10,7 @@ add_library(CanEngine STATIC
     src/VertexArray.cpp
     src/IndexBuffer.cpp
     src/Renderer.cpp
+    src/Shader.cpp
     include/CanEngine/Engine.h
     include/CanEngine/Application.h
     include/CanEngine/Log.h
@@ -19,6 +20,7 @@ add_library(CanEngine STATIC
     include/CanEngine/VertexArray.h
     include/CanEngine/IndexBuffer.h
     include/CanEngine/Renderer.h
+    include/CanEngine/Shader.h
 )
 
 target_sources(CanEngine PRIVATE
