@@ -106,7 +106,7 @@ If NO: do not expand the scope.
 
 ### Week 6 — Shaders
 
-- [ ] Day 26 — GLSL
+- [x] Day 26 — GLSL
 - [ ] Day 27 — Shader class
 - [ ] Day 28 — Shader error handling
 - [ ] Day 29 — Uniforms
